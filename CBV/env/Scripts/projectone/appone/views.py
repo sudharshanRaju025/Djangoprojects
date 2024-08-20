@@ -4,7 +4,6 @@ from django.urls import reverse_lazy
 from .models import Ticket
 from .forms import TicketForm,SearchForm
 
-# Create your views here.
 def search_view(request,CreateView):
      form=SearchForm(request.GET or None)
      results=[]
