@@ -1,0 +1,21 @@
+.grid-container{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 10px;
+}
+
+.grid-item img{
+
+    width: 220px;
+    height: auto;
+
+}
+
+.grid-item{
+    border:1px solid lightblue;
+    padding: 65px;
+}
+
+.details{
+    margin-top: 10px;
+}

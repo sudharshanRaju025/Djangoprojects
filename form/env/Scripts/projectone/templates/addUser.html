@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <style>
+        body{
+            background-color:whitesmoke;
+        }
+        h1{
+            color: blue;
+        }
+        form{
+           
+            border: 5px black;
+            padding-top: 10px;
+            padding-left:0px;
+            color: green;
+            width: 700px;
+            height: 600px;
+            box-shadow: 1px 2px 3px black;
+            line-height: 2;
+            margin: 0px;
+            border-radius: 10px;
+            line-clamp: 30px;
+            
+        }
+    </style>
+</head>
+<body>
+    <br><br>
+    <center>
+    <h1>User Profile Registraion</h1>
+    </center>
+    <center>
+    <form method="post">
+        <!-- < {{form.as_div}}  -->
+         {{form.as_p}} 
+         <!-- {{form.as_ul}}  -->
+        <!-- {{form.as_table}} -->
+
+        {%csrf_token%}
+        <input style="width: 140px;background-color:blue;color: white;border-radius: 10px;height: 30px;"  type="submit" value="Submit">
+    </form>
+    </center>
+
+   
+</body>
+</html>

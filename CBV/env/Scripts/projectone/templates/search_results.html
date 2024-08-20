@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device_width, initia-scale=1.0" />
+    <title>search results</title>
+  </head>
+  <body>
+    <h1>search results</h1>
+    {% include 'search_form.html' %}
+    <ul>
+        {% for result in results %}
+        <li>{{ result.name }}</li>
+        {% empty %}
+        <li>NO results found.</li>
+        {% endfor %}
+    </ul>
+  </body>
+</html>

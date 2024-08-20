@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,intial-scale=1.0" />
+    <title>user profile</title>
+    <link rel="stylesheet" href="{% static 'UserProfileDetails.css' %}" />
+  </head>
+  <body>
+    <h4>user profile and product details</h4>
+    <!--grid container start-->
+    <div class="grid-container">
+      {% for profile in details %}
+      <!--col 1-->
+      <!--grid items start-->
+      <div class="grid-item">
+        <img src="{{ profile.product_image.url }}" alt="product image" />
+
+        <div class="details">
+          <strong>user_name:</strong>{{profile.user_name}}<br />
+          <strong>user_email:</strong>{{profile.user_contact}}<br />
+          <strong>user_contact:</strong>{{profile.user_email}}<br />
+          <strong>product_name:</strong>{{profile.product_name}}<br />
+          <strong>product_cost:</strong>{{profile.product_cost}}<br />
+        </div>
+      </div>
+      <!--grid item end-->
+      {% endfor %}
+    </div>
+    <!--grid container is end-->
+  </body>
+</html>

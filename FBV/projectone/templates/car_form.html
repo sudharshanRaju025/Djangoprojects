@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      fieldset{
+          box-shadow: 1px 2px black;
+          border-radius: 10px;
+          color: blue;
+          height: 350px;
+          width: 500px;
+          
+      }
+    </style>
+</head>
+<body>
+  <br><br><br>
+
+  <center>
+    <fieldset>
+        <legend><strong>Add Car Details</strong></legend>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <center>
+              <br><br>
+            {{ car_form.as_p }}
+            
+            Car_image:<input type="file" name="images" id=""><br><br><br>
+            <button style="width:150px;height: 30px;color: black;background-color: lightblue;border-radius: 5px;" type="submit"><b>Save</b></button>
+            </center>
+        </form>
+    </fieldset>
+  </center>
+    <br>
+    <center>
+    <button style="width: 150px;height: 30px;background-color: rgba(0, 0, 255, 0.765);border-radius: 5px;"><a style="text-decoration: none;width:100px;color: white;" href="http://127.0.0.1:8000/cars/"><b>Cars Home Page</b></a></button>
+    </center>
+</body>
+</html>

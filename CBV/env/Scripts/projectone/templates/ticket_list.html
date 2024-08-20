@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ticket List</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Custom Styles */
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+        .table-container {
+            margin-top: 20px;
+        }
+        .table {
+            border-collapse: separate;
+            border: 2px solid #dee2e6;
+            border-radius: 0.375rem; /* Rounded corners for the table */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for modern look */
+        }
+        .table thead th {
+            background-color: #0d6efd;
+            color: white;
+            border-bottom: 2px solid #0b5ed7; /* Darker border under the header */
+            padding: 1rem; /* Increased padding for header cells */
+        }
+        .table td, .table th {
+            border: 1px solid #dee2e6;
+            padding: 1rem; /* Increased padding for table cells */
+        }
+        .table tbody tr:nth-of-type(even) {
+            background-color: #f8f9fa; /* Alternate row color */
+        }
+        .table tbody tr:hover {
+            background-color: #e9ecef; /* Highlight row on hover */
+        }
+        .btn-custom {
+            background-color: #0d6efd;
+            color: white;
+            padding: 0.5rem 1rem; /* Add padding for buttons */
+        }
+        .btn-custom:hover {
+            background-color: #0b5ed7;
+            color: white;
+        }
+        .btn-book-again {
+            margin-top: 20px;
+            display: block;
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center mb-4">Tickets</h1>
+        <div class="table-container">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>User Name</th>
+                        <th>From</th>
+                        <th>To</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Email</th>
+                        <th>Contact Number</th>
+                        <th>purpose</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for ticket in ticket_list %}
+                    <tr>
+                        <td>{{ ticket.user_name }}</td>
+                        <td>{{ ticket.from_location }}</td>
+                        <td>{{ ticket.to_location }}</td>
+                        <td>{{ ticket.date }}</td>
+                        <td>{{ ticket.time }}</td>
+                        <td>{{ ticket.email }}</td>
+                        <td>{{ ticket.contact_number }}</td>
+                        <td>{{ ticket.purpose }}</td>
+                        <td>
+                            <a href="{% url 'generate_pdf' ticket.id %}" class="btn btn-custom">Download Pdf</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <a href="http://127.0.0.1:8000/book/" class="btn btn-secondary btn-book-again">Book Again</a>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.min.js"></script>
+</body>
+</html>
