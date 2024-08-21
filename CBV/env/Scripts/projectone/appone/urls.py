@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import TicketCreateView,TicketListView, generate_pdf,search_view
+from .views import TicketCreateView,TicketListView, generate_pdf
 
 urlpatterns=[
     path("book/",TicketCreateView.as_view()),
