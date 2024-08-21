@@ -1,5 +1,4 @@
-{% load static %}
-{% load custom_filter %}
+{% load static %} {% load custom_filter %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -19,6 +18,8 @@
         border-radius: 8px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         background-color: #f8f9fa;
+        max-height: 700px;
+        line-height: 1px;
       }
       .form-header {
         margin-bottom: 20px;
@@ -33,69 +34,118 @@
       .btn-custom {
         margin-right: 10px;
       }
+      /* Header and Footer Styles */
+      .header {
+        background-color: #343a40;
+        color: white;
+        padding: 10px 0;
+      }
+      .footer {
+        background-color: #343a40;
+        color: white;
+        padding: 10px 0;
+        position: fixed;
+        width: 100%;
+        bottom: 0;
+      }
     </style>
   </head>
   <body>
-    <header>
-      <div class="container">
-        <div class="form-container">
-          <div class="form-header text-center">
-            <h1>Ticket Booking System</h1>
-            <h2>Book Your Tickets</h2>
-          </div>
-          <form method="post">
-            {% csrf_token %}
-
-            <div class="form-group">
-              <label for="from_location">From</label>
-              {{ form.from_location |add_class:"form-control" }}
-            </div>
-
-            <div class="form-group">
-              <label for="to_location">To</label>
-              {{ form.to_location |add_class:"form-control" }}
-            </div>
-
-            <div class="form-group">
-              <label for="date">Date</label>
-              {{ form.date |add_class:"form-control" }}
-            </div>
-
-            <div class="form-group">
-              <label for="time">Time</label>
-              {{ form.time |add_class:"form-control" }}
-            </div>
-
-            <div class="form-group">
-              <label for="user_name">Name</label>
-              {{ form.user_name |add_class:"form-control" }}
-            </div>
-
-            <div class="form-group">
-              <label for="email">Email</label>
-              {{ form.email |add_class:"form-control" }}
-            </div>
-
-            <div class="form-group">
-              <label for="contact_number">Contact Number</label>
-              {{ form.contact_number |add_class:"form-control" }}
-            </div>
-
-            <div class="form-group">
-              <label for="purpose">purpose</label>
-              {{ form.purpose |add_class:"form-control" }}
-            </div>
-
-            <div class="form-actions text-center">
-              <button type="reset" class="btn btn-secondary btn-custom">
-                Reset
-              </button>
-              <button type="submit" class="btn btn-primary">Book</button>
-            </div>
-          </form>
+    <!-- Header -->
+    <header class="header">
+      <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="#">Ticket Booking System</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#"
+                >Home <span class="sr-only">(current)</span></a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contact</a>
+            </li>
+          </ul>
         </div>
-      </div>
+      </nav>
     </header>
+
+    <main role="main" class="container">
+      <div class="form-container">
+        <div class="form-header text-center">
+          <h3>Ticket Booking System</h3>
+          <h5>Book Your Tickets</h5>
+        </div>
+        <form method="post">
+          {% csrf_token %}
+
+          <div class="form-group">
+            <label for="from_location">From</label>
+            {{ form.from_location |add_class:"form-control" }}
+          </div>
+
+          <div class="form-group">
+            <label for="to_location">To</label>
+            {{ form.to_location |add_class:"form-control" }}
+          </div>
+
+          <div class="form-group">
+            <label for="date">Date</label>
+            {{ form.date |add_class:"form-control" }}
+          </div>
+
+          <div class="form-group">
+            <label for="time">Time</label>
+            {{ form.time |add_class:"form-control" }}
+          </div>
+
+          <div class="form-group">
+            <label for="user_name">Name</label>
+            {{ form.user_name |add_class:"form-control" }}
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email</label>
+            {{ form.email |add_class:"form-control" }}
+          </div>
+
+          <div class="form-group">
+            <label for="contact_number">Contact Number</label>
+            {{ form.contact_number |add_class:"form-control" }}
+          </div>
+
+          <div class="form-group">
+            <label for="purpose">Purpose</label>
+            {{ form.purpose |add_class:"form-control" }}
+          </div>
+
+          <div class="form-actions text-center">
+            <button type="reset" class="btn btn-secondary btn-custom">
+              Reset
+            </button>
+            <button type="submit" class="btn btn-primary">Book</button>
+          </div>
+        </form>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer text-center">
+      <p>&copy; 2024 Ticket Booking System. All rights reserved.</p>
+    </footer>
 
     <!-- Bootstrap JS and dependencies -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
