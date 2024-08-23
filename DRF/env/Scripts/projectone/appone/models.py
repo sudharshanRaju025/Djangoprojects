@@ -4,7 +4,7 @@ from django.utils import timezone
 # Create your models here.
 
 class LeadModule(models.Model):
-    id=models.CharField(max_length=100)
+    id=models.AutoField(primary_key=True)
     Name=models.CharField(max_length=100)
     cc=models.BigIntegerField()
     contact_no=models.BigIntegerField()

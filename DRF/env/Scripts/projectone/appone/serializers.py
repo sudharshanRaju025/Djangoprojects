@@ -3,7 +3,7 @@ from .models import LeadModule
 
 class LeadSerializer(serializers.ModelSerializer):
 
-    class meta:
+    class Meta:
 
         model=LeadModule
         fields="__all__"

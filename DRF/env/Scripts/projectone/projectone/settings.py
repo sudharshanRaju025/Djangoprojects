@@ -38,9 +38,18 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "rest_framework"
+    "rest_framework",
+    "rest_framework_simplejwt",
     "appone",#lead module
 ]
+REST_FRAMEWORK = {
+    
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+    
+        'rest_framework_simplejwt.authentication.JWTStatelessUserAuthentication',
+    )
+    
+}
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",

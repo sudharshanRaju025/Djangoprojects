@@ -1,3 +1,4 @@
+from rest_framework import permissions
 from rest_framework import viewsets
 from rest_framework.response import Response
 from rest_framework.status import HTTP_204_NO_CONTENT
@@ -10,6 +11,7 @@ class CreateNewLeadViewSet(viewsets.ModelViewSet):
 
     queryset = LeadModule.objects.all()
     serializer_class = LeadSerializer
+    permission_classes=[permissions.IsAuthenticated]
 
     def destroy(self, request, pk=None):
 
