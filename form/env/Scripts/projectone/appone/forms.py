@@ -7,7 +7,7 @@ class UserProfileForm(forms.ModelForm):
 
     class Meta:
 
-        model = UserProfile  # hete UserProfile is a Model class
+        model = UserProfile  # here UserProfile is a Model class
         fields = '__all__' # all the models fileds are included here
 
     first_name=forms.CharField(validators=[MinLengthValidator(3)])
@@ -27,9 +27,17 @@ class UserProfileForm(forms.ModelForm):
             raise ValidationError("first letter must be uppercase")
         return last_name
     
-    # def clean_first_name(self):
+    def clean_course_name(self):
 
-    #     first_name = self.cleaned_data.get('first_name')
-    #     if first_name and first_name[0].islower():
-    #         raise ValidationError('First Letter Must be UpperCase')
-    #     return first_name
+        course_name=self.cleaned_data.get("course_name")
+        if course_name and course_name[0].islower():
+            raise ValidationError("write first letter uppercase")
+        return course_name
+    
+    def clean_contact_number(self):
+
+        contact_number=self.cleaned_data.get("contact_number")
+        if len(contact_number)<10:
+            raise ValidationError("contact number contain 10 letters")
+        return contact_number
+
